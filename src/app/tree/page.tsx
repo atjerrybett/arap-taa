@@ -32,21 +32,21 @@ export default function TreePage() {
     <div className={clsx('min-h-screen', isFullscreen && 'fixed inset-0 z-40 bg-earth-50 dark:bg-earth-950 overflow-auto')}>
       {/* Header */}
       <div className="bg-white dark:bg-earth-900 border-b border-earth-200 dark:border-earth-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <h1 className="text-3xl font-bold text-earth-900 dark:text-earth-100">
+              <h1 className="text-2xl sm:text-3xl font-bold text-earth-900 dark:text-earth-100">
                 Full Family Tree
               </h1>
-              <p className="text-earth-600 dark:text-earth-400 mt-1">
+              <p className="text-sm sm:text-base text-earth-600 dark:text-earth-400 mt-1">
                 Interactive view of the complete Arap Taa family
               </p>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto">
               <button
                 onClick={() => isPathHighlighted ? clearHighlight() : highlightPathToMalcolm()}
                 className={clsx(
-                  'flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all text-sm',
+                  'flex items-center justify-center gap-2 px-3 sm:px-4 py-2 rounded-lg font-medium transition-all text-xs sm:text-sm',
                   isPathHighlighted
                     ? 'bg-amber-500 text-white'
                     : 'bg-earth-100 dark:bg-earth-800 text-earth-700 dark:text-earth-200 hover:bg-earth-200 dark:hover:bg-earth-700'

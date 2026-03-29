@@ -13,33 +13,33 @@ export default function HomePage() {
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-sage-500 rounded-full blur-3xl" />
         </div>
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-32">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-100 dark:bg-amber-900/40 rounded-full text-amber-700 dark:text-amber-400 text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-100 dark:bg-amber-900/40 rounded-full text-amber-700 dark:text-amber-400 text-sm font-medium mb-4 sm:mb-6">
               <TreePine className="w-4 h-4" />
               Preserving Our Heritage
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold text-earth-900 dark:text-earth-50 mb-6 tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-earth-900 dark:text-earth-50 mb-4 sm:mb-6 tracking-tight">
               Arap Taa
               <span className="block text-amber-600 dark:text-amber-400">Family Legacy</span>
             </h1>
             
-            <p className="max-w-2xl mx-auto text-lg md:text-xl text-earth-600 dark:text-earth-300 mb-10 leading-relaxed">
+            <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-earth-600 dark:text-earth-300 mb-6 sm:mb-10 leading-relaxed">
               Celebrating the rich heritage of the Arap Taa family. From our great patriarch through three noble houses, our legacy grows stronger with each generation.
             </p>
             
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
               <Link
                 href="/tree"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-amber-600 hover:bg-amber-700 text-white rounded-xl font-semibold shadow-lg shadow-amber-600/25 hover:shadow-amber-600/40 transition-all hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-amber-600 hover:bg-amber-700 text-white rounded-xl font-semibold shadow-lg shadow-amber-600/25 hover:shadow-amber-600/40 transition-all hover:-translate-y-0.5 w-full sm:w-auto"
               >
                 <TreePine className="w-5 h-5" />
                 Explore Family Tree
               </Link>
               <Link
                 href="/people"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-earth-800 text-earth-700 dark:text-earth-200 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white dark:bg-earth-800 text-earth-700 dark:text-earth-200 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 w-full sm:w-auto"
               >
                 <Users className="w-5 h-5" />
                 People Directory

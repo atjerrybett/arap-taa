@@ -61,7 +61,7 @@ export function ProfileModal({ person, onClose }: ProfileModalProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4">
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-earth-950/60 modal-backdrop"
@@ -69,7 +69,7 @@ export function ProfileModal({ person, onClose }: ProfileModalProps) {
       />
       
       {/* Modal */}
-      <div className="relative w-full max-w-2xl max-h-[90vh] bg-white dark:bg-earth-900 rounded-2xl shadow-2xl overflow-hidden animate-slide-up">
+      <div className="relative w-full sm:max-w-2xl max-h-[95vh] sm:max-h-[90vh] bg-white dark:bg-earth-900 rounded-t-2xl sm:rounded-2xl shadow-2xl overflow-hidden animate-slide-up">
         {/* Header */}
         <div className={`relative h-32 ${colors.light}`}>
           <div className={`absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white dark:from-earth-900`} />
@@ -104,7 +104,7 @@ export function ProfileModal({ person, onClose }: ProfileModalProps) {
         </div>
 
         {/* Content */}
-        <div className="p-6 overflow-y-auto max-h-[calc(90vh-200px)]">
+        <div className="p-4 sm:p-6 overflow-y-auto max-h-[calc(95vh-220px)] sm:max-h-[calc(90vh-200px)]">
           {/* Bio */}
           {person.bio && (
             <p className="text-earth-700 dark:text-earth-300 leading-relaxed mb-6">

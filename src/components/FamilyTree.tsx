@@ -68,7 +68,7 @@ export function HouseCard({
       isExpanded ? 'col-span-full' : ''
     )}>
       {/* House Header */}
-      <div className="p-4 flex items-center justify-between">
+      <div className="p-3 sm:p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
         <div className="flex items-center gap-3">
           <div 
             className="w-4 h-4 rounded-full"
@@ -88,7 +88,7 @@ export function HouseCard({
         <button
           onClick={onToggle}
           className={clsx(
-            'flex items-center gap-2 px-4 py-2 rounded-lg text-white transition-colors',
+            'flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 rounded-lg text-sm sm:text-base text-white transition-colors w-full sm:w-auto justify-center sm:justify-start',
             colors.button
           )}
         >

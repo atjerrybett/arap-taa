@@ -60,16 +60,16 @@ export default function PeoplePage() {
     <div className="min-h-screen bg-earth-50 dark:bg-earth-950">
       {/* Header */}
       <div className="bg-white dark:bg-earth-900 border-b border-earth-200 dark:border-earth-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <h1 className="text-3xl font-bold text-earth-900 dark:text-earth-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+          <h1 className="text-2xl sm:text-3xl font-bold text-earth-900 dark:text-earth-100">
             People Directory
           </h1>
-          <p className="text-earth-600 dark:text-earth-400 mt-2">
+          <p className="text-sm sm:text-base text-earth-600 dark:text-earth-400 mt-1 sm:mt-2">
             Browse all {allPeople.length} members of the Arap Taa family
           </p>
 
           {/* Search & Filters */}
-          <div className="mt-6 flex flex-col sm:flex-row gap-4">
+          <div className="mt-4 sm:mt-6 flex flex-col gap-3 sm:gap-4">
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-earth-400" />
               <input
@@ -111,7 +111,7 @@ export default function PeoplePage() {
           Showing {filteredPeople.length} of {allPeople.length} family members
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
           {filteredPeople.map((person) => {
             const houseColor = getHouseColor(person.house);
             const colors = houseColorMap[houseColor] || houseColorMap.stone;

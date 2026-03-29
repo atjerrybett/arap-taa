@@ -69,7 +69,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-start justify-center pt-[10vh] px-4">
+    <div className="fixed inset-0 z-[100] flex items-start sm:items-center justify-center pt-[5vh] sm:pt-[10vh] px-3 sm:px-4">
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-earth-950/50 modal-backdrop"
@@ -77,7 +77,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       />
       
       {/* Modal */}
-      <div className="relative w-full max-w-lg bg-white dark:bg-earth-900 rounded-2xl shadow-2xl overflow-hidden animate-fade-in">
+      <div className="relative w-full max-w-sm sm:max-w-lg bg-white dark:bg-earth-900 rounded-2xl shadow-2xl overflow-hidden animate-fade-in">
         {/* Search Input */}
         <div className="flex items-center gap-3 p-4 border-b border-earth-200 dark:border-earth-700">
           <Search className="w-5 h-5 text-earth-400" />
