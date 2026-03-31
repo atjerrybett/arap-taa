@@ -15,6 +15,7 @@ export interface Person {
   birthDate?: string;
   deathDate?: string;
   birthPlace?: string;
+  clan?: string;
   bio?: string;
   photoUrl?: string;
   isPatriarch?: boolean;

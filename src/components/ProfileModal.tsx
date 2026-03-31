@@ -1,6 +1,6 @@
 'use client';
 
-import { X, User, Calendar, MapPin, Briefcase, Users, Heart, Baby } from 'lucide-react';
+import { X, User, Calendar, MapPin, Briefcase, Users, Heart, Baby, Crown } from 'lucide-react';
 import { Person } from '@/types';
 import { 
   getPersonDisplayName, 
@@ -147,6 +147,15 @@ export function ProfileModal({ person, onClose }: ProfileModalProps) {
                 <div>
                   <p className="text-xs text-earth-500 dark:text-earth-400">Occupation</p>
                   <p className="text-sm font-medium text-earth-900 dark:text-earth-100">{person.occupation}</p>
+                </div>
+              </div>
+            )}
+            {person.clan && (
+              <div className="flex items-center gap-3 p-3 rounded-xl bg-earth-50 dark:bg-earth-800">
+                <Crown className="w-5 h-5 text-earth-400" />
+                <div>
+                  <p className="text-xs text-earth-500 dark:text-earth-400">Clan</p>
+                  <p className="text-sm font-medium text-earth-900 dark:text-earth-100">{person.clan}</p>
                 </div>
               </div>
             )}
