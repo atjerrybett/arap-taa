@@ -14,13 +14,13 @@ export default function Error({ error, reset }: ErrorProps) {
   }, [error]);
 
   return (
-    <div className="min-h-screen bg-earth-50 dark:bg-earth-950 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-forest-50 dark:bg-forest-950 flex items-center justify-center px-4">
       <div className="text-center max-w-md">
         <AlertCircle className="w-16 h-16 mx-auto text-red-500 mb-6" />
-        <h1 className="text-4xl font-bold text-earth-900 dark:text-earth-100 mb-2">
+        <h1 className="text-4xl font-bold text-forest-900 dark:text-forest-100 mb-2">
           Oops!
         </h1>
-        <p className="text-earth-600 dark:text-earth-400 mb-8">
+        <p className="text-forest-600 dark:text-forest-400 mb-8">
           Something went wrong while exploring the family tree.
         </p>
         <button

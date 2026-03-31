@@ -7,39 +7,39 @@ export default function HomePage() {
     <div>
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-100 via-earth-100 to-sage-100 dark:from-earth-900 dark:via-earth-950 dark:to-sage-950" />
+        <div className="absolute inset-0 bg-gradient-to-br from-copper-100 via-forest-100 to-moss-100 dark:from-forest-900 dark:via-forest-950 dark:to-moss-950" />
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-amber-500 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-sage-500 rounded-full blur-3xl" />
+          <div className="absolute top-20 left-10 w-72 h-72 bg-copper-500 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-moss-500 rounded-full blur-3xl" />
         </div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-32">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-100 dark:bg-amber-900/40 rounded-full text-amber-700 dark:text-amber-400 text-sm font-medium mb-4 sm:mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-copper-100 dark:bg-copper-900/40 rounded-full text-copper-700 dark:text-copper-400 text-sm font-medium mb-4 sm:mb-6">
               <TreePine className="w-4 h-4" />
               Preserving Our Heritage
             </div>
             
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-earth-900 dark:text-earth-50 mb-4 sm:mb-6 tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-forest-900 dark:text-forest-50 mb-4 sm:mb-6 tracking-tight">
               Arap Taa
-              <span className="block text-amber-600 dark:text-amber-400">Family Legacy</span>
+              <span className="block text-copper-600 dark:text-copper-400">Family Legacy</span>
             </h1>
             
-            <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-earth-600 dark:text-earth-300 mb-6 sm:mb-10 leading-relaxed">
+            <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-forest-600 dark:text-forest-300 mb-6 sm:mb-10 leading-relaxed">
               Celebrating the rich heritage of the Arap Taa family. From our great patriarch through three noble houses, our legacy grows stronger with each generation.
             </p>
             
             <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
               <Link
                 href="/tree"
-                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-amber-600 hover:bg-amber-700 text-white rounded-xl font-semibold shadow-lg shadow-amber-600/25 hover:shadow-amber-600/40 transition-all hover:-translate-y-0.5 w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-copper-600 hover:bg-copper-700 text-white rounded-xl font-semibold shadow-lg shadow-copper-600/25 hover:shadow-copper-600/40 transition-all hover:-translate-y-0.5 w-full sm:w-auto"
               >
                 <TreePine className="w-5 h-5" />
                 Explore Family Tree
               </Link>
               <Link
                 href="/people"
-                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white dark:bg-earth-800 text-earth-700 dark:text-earth-200 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white dark:bg-forest-800 text-forest-700 dark:text-forest-200 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 w-full sm:w-auto"
               >
                 <Users className="w-5 h-5" />
                 People Directory
@@ -50,7 +50,7 @@ export default function HomePage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 bg-white dark:bg-earth-900">
+      <section className="py-12 bg-white dark:bg-forest-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
@@ -59,10 +59,10 @@ export default function HomePage() {
               { label: 'Houses', value: '3', icon: BookOpen },
               { label: 'Stories', value: '∞', icon: Sparkles },
             ].map((stat) => (
-              <div key={stat.label} className="text-center p-6 rounded-2xl bg-earth-50 dark:bg-earth-800">
-                <stat.icon className="w-8 h-8 mx-auto mb-3 text-amber-500" />
-                <p className="text-3xl font-bold text-earth-900 dark:text-earth-100">{stat.value}</p>
-                <p className="text-sm text-earth-600 dark:text-earth-400 mt-1">{stat.label}</p>
+              <div key={stat.label} className="text-center p-6 rounded-2xl bg-forest-50 dark:bg-forest-800">
+                <stat.icon className="w-8 h-8 mx-auto mb-3 text-copper-500" />
+                <p className="text-3xl font-bold text-forest-900 dark:text-forest-100">{stat.value}</p>
+                <p className="text-sm text-forest-600 dark:text-forest-400 mt-1">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -70,13 +70,13 @@ export default function HomePage() {
       </section>
 
       {/* Family Tree Section */}
-      <section className="py-16 bg-earth-50 dark:bg-earth-950">
+      <section className="py-16 bg-forest-50 dark:bg-forest-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-earth-900 dark:text-earth-100 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-forest-900 dark:text-forest-100 mb-4">
               Our Family Tree
             </h2>
-            <p className="text-earth-600 dark:text-earth-400 max-w-xl mx-auto">
+            <p className="text-forest-600 dark:text-forest-400 max-w-xl mx-auto">
               Click on any family member to view their profile. Expand houses to explore different branches of the family.
             </p>
           </div>
@@ -86,13 +86,13 @@ export default function HomePage() {
       </section>
 
       {/* Houses Overview */}
-      <section className="py-16 bg-white dark:bg-earth-900">
+      <section className="py-16 bg-white dark:bg-forest-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-earth-900 dark:text-earth-100 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-forest-900 dark:text-forest-100 mb-4">
               The Three Houses
             </h2>
-            <p className="text-earth-600 dark:text-earth-400">
+            <p className="text-forest-600 dark:text-forest-400">
               The Arap Taa legacy branches through three noble houses
             </p>
           </div>
@@ -129,10 +129,10 @@ export default function HomePage() {
                 className={`p-8 rounded-2xl border-l-4 ${house.borderColor} ${house.bgColor} transition-transform hover:-translate-y-1`}
               >
                 <div className={`w-4 h-4 rounded-full ${house.dotColor} mb-4`} />
-                <h3 className="text-xl font-bold text-earth-900 dark:text-earth-100 mb-3">
+                <h3 className="text-xl font-bold text-forest-900 dark:text-forest-100 mb-3">
                   {house.name}
                 </h3>
-                <p className="text-earth-600 dark:text-earth-400 leading-relaxed">
+                <p className="text-forest-600 dark:text-forest-400 leading-relaxed">
                   {house.desc}
                 </p>
               </div>

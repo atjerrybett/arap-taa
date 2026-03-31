@@ -43,23 +43,23 @@ export function FAQ() {
       {faqs.map((faq, index) => (
         <div
           key={index}
-          className="border border-earth-200 dark:border-earth-700 rounded-xl overflow-hidden"
+          className="border border-forest-200 dark:border-forest-700 rounded-xl overflow-hidden"
         >
           <button
             onClick={() => setOpenIndex(openIndex === index ? null : index)}
-            className="w-full flex items-center justify-between p-6 hover:bg-earth-50 dark:hover:bg-earth-800 transition-colors text-left"
+            className="w-full flex items-center justify-between p-6 hover:bg-forest-50 dark:hover:bg-forest-800 transition-colors text-left"
           >
-            <h3 className="font-semibold text-earth-900 dark:text-earth-100 pr-4">
+            <h3 className="font-semibold text-forest-900 dark:text-forest-100 pr-4">
               {faq.question}
             </h3>
             {openIndex === index ? (
-              <ChevronUp className="w-5 h-5 text-amber-600 flex-shrink-0" />
+              <ChevronUp className="w-5 h-5 text-copper-600 flex-shrink-0" />
             ) : (
-              <ChevronDown className="w-5 h-5 text-earth-400 flex-shrink-0" />
+              <ChevronDown className="w-5 h-5 text-forest-400 flex-shrink-0" />
             )}
           </button>
           {openIndex === index && (
-            <div className="px-6 pb-6 text-earth-600 dark:text-earth-400 border-t border-earth-200 dark:border-earth-700">
+            <div className="px-6 pb-6 text-forest-600 dark:text-forest-400 border-t border-forest-200 dark:border-forest-700">
               {faq.answer}
             </div>
           )}

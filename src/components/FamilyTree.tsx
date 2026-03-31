@@ -79,7 +79,7 @@ export function HouseCard({
               House of {houseName}
             </h3>
             {description && (
-              <p className="text-sm text-earth-600 dark:text-earth-400">
+              <p className="text-sm text-forest-600 dark:text-forest-400">
                 {description}
               </p>
             )}
@@ -111,7 +111,7 @@ export function HouseCard({
         <div className="px-4 pb-4">
           <div className="flex items-center gap-4">
             <PersonNode person={matriarch} size="sm" />
-            <div className="text-sm text-earth-600 dark:text-earth-400">
+            <div className="text-sm text-forest-600 dark:text-forest-400">
               <p>{children.length} children</p>
               <p className="text-xs">Click to explore this lineage</p>
             </div>
@@ -173,11 +173,11 @@ export function FamilyBranch({ person, level, showSpouse = true }: FamilyBranchP
       {hasChildren && isExpanded && (
         <div className="mt-4 relative">
           {/* Vertical line from parent */}
-          <div className="absolute top-0 left-1/2 w-0.5 h-4 bg-earth-300 dark:bg-earth-600 -translate-x-1/2" />
+          <div className="absolute top-0 left-1/2 w-0.5 h-4 bg-forest-300 dark:bg-forest-600 -translate-x-1/2" />
           
           {/* Horizontal line connecting children */}
           {uniqueChildren.length > 1 && (
-            <div className="absolute top-4 left-0 right-0 h-0.5 bg-earth-300 dark:bg-earth-600" 
+            <div className="absolute top-4 left-0 right-0 h-0.5 bg-forest-300 dark:bg-forest-600" 
                  style={{ 
                    left: `${100 / (uniqueChildren.length * 2)}%`,
                    right: `${100 / (uniqueChildren.length * 2)}%`
@@ -190,7 +190,7 @@ export function FamilyBranch({ person, level, showSpouse = true }: FamilyBranchP
             {uniqueChildren.map((child, index) => (
               <div key={child.id} className="flex flex-col items-center relative">
                 {/* Vertical line to child */}
-                <div className="w-0.5 h-4 bg-earth-300 dark:bg-earth-600" />
+                <div className="w-0.5 h-4 bg-forest-300 dark:bg-forest-600" />
                 <FamilyBranch 
                   person={child} 
                   level={level + 1}
@@ -206,7 +206,7 @@ export function FamilyBranch({ person, level, showSpouse = true }: FamilyBranchP
       {hasChildren && !isExpanded && (
         <button
           onClick={() => toggleNode(person.id)}
-          className="mt-2 flex items-center gap-1 text-xs text-earth-500 dark:text-earth-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
+          className="mt-2 flex items-center gap-1 text-xs text-forest-500 dark:text-forest-400 hover:text-copper-600 dark:hover:text-copper-400 transition-colors"
         >
           <Users className="w-3 h-3" />
           {uniqueChildren.length} {uniqueChildren.length === 1 ? 'child' : 'children'}

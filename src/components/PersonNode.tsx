@@ -78,8 +78,8 @@ export function PersonNode({
       <button
         onClick={() => openModal(person.id)}
         className={clsx(
-          'person-node flex flex-col items-center p-3 rounded-xl bg-white dark:bg-earth-800 shadow-md hover:shadow-lg transition-all duration-200',
-          isInPath && 'ring-2 ring-offset-2 ring-offset-earth-50 dark:ring-offset-earth-950 animate-pulse-glow',
+          'person-node flex flex-col items-center p-3 rounded-xl bg-white dark:bg-forest-800 shadow-md hover:shadow-lg transition-all duration-200',
+          isInPath && 'ring-2 ring-offset-2 ring-offset-forest-50 dark:ring-offset-forest-950 animate-pulse-glow',
           isInPath && colors.ring,
           !isInPath && 'hover:scale-105'
         )}
@@ -103,7 +103,7 @@ export function PersonNode({
 
         {/* Name */}
         <p className={clsx(
-          'mt-2 font-medium text-earth-900 dark:text-earth-100 text-center leading-tight',
+          'mt-2 font-medium text-forest-900 dark:text-forest-100 text-center leading-tight',
           size === 'sm' && 'text-xs',
           size === 'md' && 'text-sm',
           size === 'lg' && 'text-base'
@@ -126,12 +126,12 @@ export function PersonNode({
       {showExpand && hasChildren && (
         <button
           onClick={onToggleExpand}
-          className="mt-2 p-1 rounded-full bg-earth-200 dark:bg-earth-700 hover:bg-earth-300 dark:hover:bg-earth-600 transition-colors"
+          className="mt-2 p-1 rounded-full bg-forest-200 dark:bg-forest-700 hover:bg-forest-300 dark:hover:bg-forest-600 transition-colors"
         >
           {isExpanded ? (
-            <ChevronDown className="w-4 h-4 text-earth-600 dark:text-earth-300" />
+            <ChevronDown className="w-4 h-4 text-forest-600 dark:text-forest-300" />
           ) : (
-            <ChevronRight className="w-4 h-4 text-earth-600 dark:text-earth-300" />
+            <ChevronRight className="w-4 h-4 text-forest-600 dark:text-forest-300" />
           )}
         </button>
       )}
