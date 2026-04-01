@@ -135,44 +135,15 @@ export function ProfileModal({ person, onClose, referencePersonId = 'arap-taa' }
 
         {/* Content */}
         <div className="p-4 sm:p-6 overflow-y-auto max-h-[calc(95vh-220px)] sm:max-h-[calc(90vh-200px)]">
-          {/* Relationship Badge */}
-          {relationship && relationship.relationship !== 'Self' && (
-            <div className="mb-4 p-3 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800">
-              <div className="flex items-center gap-2">
-                <Link2 className="w-4 h-4 text-amber-600 dark:text-amber-400" />
-                <div>
-                  <p className="text-xs font-medium text-amber-900 dark:text-amber-300">Relationship to Patriarch</p>
-                  <p className="text-sm font-bold text-amber-700 dark:text-amber-400">{relationship.relationship}</p>
-                </div>
-              </div>
-            </div>
-          )}
-
           {/* Bio */}
           {person.bio && (
-            <div className="mb-6">
-              <h3 className="text-sm font-semibold text-earth-900 dark:text-earth-100 mb-2">About</h3>
-              <p className="text-earth-700 dark:text-earth-300 leading-relaxed">
-                {person.bio}
-              </p>
-            </div>
-          )}
-
-          {/* Life Summary */}
-          {(age !== null || person.isLiving === false) && (
-            <div className="mb-6 p-3 rounded-xl bg-earth-50 dark:bg-earth-800">
-              <p className="text-sm text-earth-700 dark:text-earth-300">
-                {person.isLiving === false || person.deathDate ? (
-                  <>Lived {age !== null && `${age} years`}{person.birthDate && person.deathDate && ` (${person.birthDate} - ${person.deathDate})`}</>
-                ) : (
-                  <>Age {age !== null && `${age} years`}{person.birthDate && ` (Born ${person.birthDate})`}</>
-                )}
-              </p>
-            </div>
+            <p className="text-earth-700 dark:text-earth-300 leading-relaxed mb-6">
+              {person.bio}
+            </p>
           )}
 
           {/* Details Grid */}
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-6">
+          <div className="grid grid-cols-2 gap-4 mb-6">
             {person.birthDate && (
               <div className="flex items-center gap-3 p-3 rounded-xl bg-earth-50 dark:bg-earth-800">
                 <Calendar className="w-5 h-5 text-earth-400" />
@@ -212,113 +183,13 @@ export function ProfileModal({ person, onClose, referencePersonId = 'arap-taa' }
             {person.clan && (
               <div className="flex items-center gap-3 p-3 rounded-xl bg-earth-50 dark:bg-earth-800">
                 <Crown className="w-5 h-5 text-earth-400" />
-                <div className="min-w-0 flex-1">
+                <div>
                   <p className="text-xs text-earth-500 dark:text-earth-400">Clan</p>
-                  <p className="text-sm font-medium text-earth-900 dark:text-earth-100 truncate">{person.clan}</p>
-                </div>
-              </div>
-            )}
-            {person.deathPlace && (
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-earth-50 dark:bg-earth-800">
-                <MapPin className="w-5 h-5 text-earth-400" />
-                <div className="min-w-0 flex-1">
-                  <p className="text-xs text-earth-500 dark:text-earth-400">Death Place</p>
-                  <p className="text-sm font-medium text-earth-900 dark:text-earth-100 truncate">{person.deathPlace}</p>
-                </div>
-              </div>
-            )}
-            {person.education && (
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-earth-50 dark:bg-earth-800">
-                <GraduationCap className="w-5 h-5 text-earth-400" />
-                <div className="min-w-0 flex-1">
-                  <p className="text-xs text-earth-500 dark:text-earth-400">Education</p>
-                  <p className="text-sm font-medium text-earth-900 dark:text-earth-100 truncate">{person.education}</p>
-                </div>
-              </div>
-            )}
-            {person.email && (
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-earth-50 dark:bg-earth-800">
-                <Mail className="w-5 h-5 text-earth-400" />
-                <div className="min-w-0 flex-1">
-                  <p className="text-xs text-earth-500 dark:text-earth-400">Email</p>
-                  <a href={`mailto:${person.email}`} className="text-sm font-medium text-amber-600 dark:text-amber-400 hover:underline truncate block">
-                    {person.email}
-                  </a>
-                </div>
-              </div>
-            )}
-            {person.phone && (
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-earth-50 dark:bg-earth-800">
-                <Phone className="w-5 h-5 text-earth-400" />
-                <div className="min-w-0 flex-1">
-                  <p className="text-xs text-earth-500 dark:text-earth-400">Phone</p>
-                  <a href={`tel:${person.phone}`} className="text-sm font-medium text-amber-600 dark:text-amber-400 hover:underline truncate block">
-                    {person.phone}
-                  </a>
+                  <p className="text-sm font-medium text-earth-900 dark:text-earth-100">{person.clan}</p>
                 </div>
               </div>
             )}
           </div>
-
-          {/* Achievements */}
-          {person.achievements && person.achievements.length > 0 && (
-            <div className="mb-6">
-              <h3 className="flex items-center gap-2 font-semibold text-earth-900 dark:text-earth-100 mb-3">
-                <Award className="w-4 h-4" />
-                Achievements
-              </h3>
-              <ul className="space-y-2">
-                {person.achievements.map((achievement, index) => (
-                  <li key={index} className="flex items-start gap-2 text-sm text-earth-700 dark:text-earth-300">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-1.5 flex-shrink-0" />
-                    {achievement}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {/* Photo Gallery */}
-          {allPhotos.length > 0 && (
-            <div className="mb-6">
-              <h3 className="flex items-center gap-2 font-semibold text-earth-900 dark:text-earth-100 mb-3">
-                <ImageIcon className="w-4 h-4" />
-                Photos ({allPhotos.length})
-              </h3>
-              <div className="space-y-3">
-                {/* Main Photo */}
-                <div className="aspect-video rounded-xl overflow-hidden bg-earth-100 dark:bg-earth-800">
-                  <img 
-                    src={allPhotos[activePhotoIndex]} 
-                    alt={`${person.firstName} - Photo ${activePhotoIndex + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                {/* Thumbnails */}
-                {allPhotos.length > 1 && (
-                  <div className="grid grid-cols-4 gap-2">
-                    {allPhotos.map((photo, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setActivePhotoIndex(index)}
-                        className={`aspect-square rounded-lg overflow-hidden border-2 transition-all ${
-                          index === activePhotoIndex 
-                            ? 'border-amber-500 scale-95' 
-                            : 'border-transparent hover:border-earth-300 dark:hover:border-earth-600'
-                        }`}
-                      >
-                        <img 
-                          src={photo} 
-                          alt={`Thumbnail ${index + 1}`}
-                          className="w-full h-full object-cover"
-                        />
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
 
           {/* Relationships */}
           <div className="space-y-4">
@@ -361,6 +232,22 @@ export function ProfileModal({ person, onClose, referencePersonId = 'arap-taa' }
                 onPersonClick={handlePersonClick}
               />
             )}
+          </div>
+
+          {/* Photo Album Placeholder */}
+          <div className="mt-6">
+            <h3 className="font-semibold text-earth-900 dark:text-earth-100 mb-3">Photo Album</h3>
+            <div className="grid grid-cols-4 gap-2">
+              {[1, 2, 3, 4].map((i) => (
+                <div 
+                  key={i}
+                  className="aspect-square rounded-lg bg-earth-100 dark:bg-earth-800 flex items-center justify-center"
+                >
+                  <User className="w-6 h-6 text-earth-300 dark:text-earth-600" />
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-earth-400 mt-2 text-center">Photos coming soon</p>
           </div>
         </div>
       </div>

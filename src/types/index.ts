@@ -15,14 +15,20 @@ export interface Person {
   birthDate?: string;
   deathDate?: string;
   birthPlace?: string;
+  deathPlace?: string;
   clan?: string;
   bio?: string;
   photoUrl?: string;
+  photoUrls?: string[];
   isPatriarch?: boolean;
   isMatriarch?: boolean;
   house?: HouseName;
   occupation?: string;
   achievements?: string[];
+  education?: string;
+  email?: string;
+  phone?: string;
+  isLiving?: boolean;
 }
 
 export interface Marriage {
