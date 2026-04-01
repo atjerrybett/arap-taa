@@ -31,21 +31,21 @@ export function PersonNode({
   const houseColor = getHouseColor(person.house);
 
   const sizeClasses = {
-    sm: 'w-28',
-    md: 'w-36',
-    lg: 'w-44',
+    sm: 'w-24 sm:w-28',
+    md: 'w-32 sm:w-36',
+    lg: 'w-36 sm:w-44',
   };
 
   const avatarSizes = {
-    sm: 'w-10 h-10',
-    md: 'w-14 h-14',
-    lg: 'w-16 h-16',
+    sm: 'w-9 h-9 sm:w-10 sm:h-10',
+    md: 'w-12 h-12 sm:w-14 sm:h-14',
+    lg: 'w-14 h-14 sm:w-16 sm:h-16',
   };
 
   const iconSizes = {
-    sm: 'w-5 h-5',
-    md: 'w-7 h-7',
-    lg: 'w-8 h-8',
+    sm: 'w-4 h-4 sm:w-5 sm:h-5',
+    md: 'w-6 h-6 sm:w-7 sm:h-7',
+    lg: 'w-7 h-7 sm:w-8 sm:h-8',
   };
 
   const colorClasses: Record<string, { ring: string; bg: string; accent: string }> = {
@@ -78,7 +78,7 @@ export function PersonNode({
       <button
         onClick={() => openModal(person.id)}
         className={clsx(
-          'person-node flex flex-col items-center p-3 rounded-xl bg-white dark:bg-earth-800 shadow-md hover:shadow-lg transition-all duration-200',
+          'person-node flex flex-col items-center p-2 sm:p-3 rounded-xl bg-white dark:bg-earth-800 shadow-md hover:shadow-lg transition-all duration-200 touch-manipulation active:scale-95 w-full',
           isInPath && 'ring-2 ring-offset-2 ring-offset-earth-50 dark:ring-offset-earth-950 animate-pulse-glow',
           isInPath && colors.ring,
           !isInPath && 'hover:scale-105'
@@ -103,10 +103,10 @@ export function PersonNode({
 
         {/* Name */}
         <p className={clsx(
-          'mt-2 font-medium text-earth-900 dark:text-earth-100 text-center leading-tight',
-          size === 'sm' && 'text-xs',
-          size === 'md' && 'text-sm',
-          size === 'lg' && 'text-base'
+          'mt-1.5 sm:mt-2 font-medium text-earth-900 dark:text-earth-100 text-center leading-tight px-1',
+          size === 'sm' && 'text-[10px] sm:text-xs',
+          size === 'md' && 'text-xs sm:text-sm',
+          size === 'lg' && 'text-sm sm:text-base'
         )}>
           {getPersonDisplayName(person)}
         </p>
@@ -114,7 +114,7 @@ export function PersonNode({
         {/* Role Badge */}
         {(person.isPatriarch || person.isMatriarch) && (
           <span className={clsx(
-            'mt-1 text-xs px-2 py-0.5 rounded-full text-white',
+            'mt-0.5 sm:mt-1 text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 rounded-full text-white',
             colors.accent
           )}>
             {person.isPatriarch ? 'Patriarch' : 'Matriarch'}
@@ -126,7 +126,7 @@ export function PersonNode({
       {showExpand && hasChildren && (
         <button
           onClick={onToggleExpand}
-          className="mt-2 p-1 rounded-full bg-earth-200 dark:bg-earth-700 hover:bg-earth-300 dark:hover:bg-earth-600 transition-colors"
+          className="mt-2 p-1.5 sm:p-1 rounded-full bg-earth-200 dark:bg-earth-700 hover:bg-earth-300 dark:hover:bg-earth-600 transition-colors touch-manipulation min-w-[32px] min-h-[32px] sm:min-w-0 sm:min-h-0 flex items-center justify-center active:scale-95"
         >
           {isExpanded ? (
             <ChevronDown className="w-4 h-4 text-earth-600 dark:text-earth-300" />

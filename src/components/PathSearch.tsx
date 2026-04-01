@@ -62,16 +62,16 @@ export function PathSearch() {
   };
 
   return (
-    <div ref={containerRef} className="relative w-full max-w-md mx-auto">
+    <div ref={containerRef} className="relative w-full px-4 sm:px-0 sm:max-w-md mx-auto">
       {/* Search input */}
       <div className={clsx(
-        'flex items-center gap-2 px-4 py-3 rounded-xl border-2 transition-all duration-200',
+        'flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border-2 transition-all duration-200 touch-manipulation',
         isPathHighlighted
           ? 'bg-amber-50 dark:bg-amber-950/30 border-amber-300 dark:border-amber-700'
           : 'bg-white dark:bg-earth-800 border-earth-200 dark:border-earth-700',
         isOpen && !isPathHighlighted && 'border-amber-400 dark:border-amber-600 shadow-lg'
       )}>
-        <Route className={clsx('w-5 h-5 flex-shrink-0', isPathHighlighted ? 'text-amber-500' : 'text-earth-400')} />
+        <Route className={clsx('w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0', isPathHighlighted ? 'text-amber-500' : 'text-earth-400')} />
         <input
           ref={inputRef}
           type="text"
@@ -89,7 +89,7 @@ export function PathSearch() {
           }}
           placeholder="Search path to anyone..."
           className={clsx(
-            'flex-1 bg-transparent outline-none text-sm',
+            'flex-1 bg-transparent outline-none text-sm sm:text-base min-w-0',
             isPathHighlighted
               ? 'text-amber-700 dark:text-amber-300 font-medium'
               : 'text-earth-900 dark:text-earth-100 placeholder:text-earth-400'
@@ -98,7 +98,7 @@ export function PathSearch() {
         {(isPathHighlighted || query) && (
           <button
             onClick={handleClear}
-            className="p-1 rounded-lg hover:bg-earth-100 dark:hover:bg-earth-700 transition-colors"
+            className="p-1.5 sm:p-1 rounded-lg hover:bg-earth-100 dark:hover:bg-earth-700 transition-colors touch-manipulation min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 flex items-center justify-center -mr-2 sm:mr-0"
           >
             <X className="w-4 h-4 text-earth-400" />
           </button>
@@ -107,7 +107,7 @@ export function PathSearch() {
 
       {/* Dropdown */}
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-earth-900 rounded-xl border border-earth-200 dark:border-earth-700 shadow-xl z-50 max-h-64 overflow-y-auto animate-fade-in">
+        <div className="absolute top-full left-0 right-0 mt-2 mx-4 sm:mx-0 bg-white dark:bg-earth-900 rounded-xl border border-earth-200 dark:border-earth-700 shadow-xl z-50 max-h-[60vh] sm:max-h-64 overflow-y-auto animate-fade-in">
           <div className="p-2">
             <p className="px-3 py-2 text-xs font-medium text-earth-500 dark:text-earth-400 uppercase tracking-wider">
               {query.trim() ? 'Search results' : 'Select a family member'}
@@ -123,10 +123,10 @@ export function PathSearch() {
                   <button
                     key={person.id}
                     onClick={() => handleSelect(person)}
-                    className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-earth-100 dark:hover:bg-earth-800 transition-colors text-left"
+                    className="w-full flex items-center gap-3 px-3 py-3 sm:py-2.5 rounded-lg hover:bg-earth-100 dark:hover:bg-earth-800 transition-colors text-left touch-manipulation active:scale-[0.98]"
                   >
-                    <div className="w-8 h-8 rounded-full bg-earth-200 dark:bg-earth-700 flex items-center justify-center flex-shrink-0">
-                      <User className="w-4 h-4 text-earth-500 dark:text-earth-400" />
+                    <div className="w-10 h-10 sm:w-8 sm:h-8 rounded-full bg-earth-200 dark:bg-earth-700 flex items-center justify-center flex-shrink-0">
+                      <User className="w-5 h-5 sm:w-4 sm:h-4 text-earth-500 dark:text-earth-400" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium text-earth-900 dark:text-earth-100 truncate">

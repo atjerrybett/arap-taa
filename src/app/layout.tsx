@@ -13,6 +13,16 @@ export const metadata: Metadata = {
   title: "Arap Taa Family Legacy",
   description: "Preserving and celebrating the heritage of the Arap Taa family across generations",
   keywords: ["family tree", "genealogy", "Arap Taa", "family legacy", "heritage"],
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+  },
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#faf6f1' },
+    { media: '(prefers-color-scheme: dark)', color: '#301c15' },
+  ],
 };
 
 export default function RootLayout({

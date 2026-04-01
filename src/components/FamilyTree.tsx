@@ -62,24 +62,24 @@ export function HouseCard({
 
   return (
     <div className={clsx(
-      'rounded-2xl border-2 overflow-hidden transition-all duration-300',
+      'rounded-xl sm:rounded-2xl border-2 overflow-hidden transition-all duration-300',
       colors.bg,
       colors.border,
       isExpanded ? 'col-span-full' : ''
     )}>
       {/* House Header */}
       <div className="p-3 sm:p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
           <div 
-            className="w-4 h-4 rounded-full"
+            className="w-3 h-3 sm:w-4 sm:h-4 rounded-full flex-shrink-0"
             style={{ backgroundColor: accentColor }}
           />
-          <div>
-            <h3 className={clsx('font-bold text-lg', colors.text)}>
+          <div className="min-w-0 flex-1">
+            <h3 className={clsx('font-bold text-base sm:text-lg truncate', colors.text)}>
               House of {houseName}
             </h3>
             {description && (
-              <p className="text-sm text-earth-600 dark:text-earth-400">
+              <p className="text-xs sm:text-sm text-earth-600 dark:text-earth-400 line-clamp-1 sm:line-clamp-none">
                 {description}
               </p>
             )}
@@ -88,7 +88,7 @@ export function HouseCard({
         <button
           onClick={onToggle}
           className={clsx(
-            'flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 rounded-lg text-sm sm:text-base text-white transition-colors w-full sm:w-auto justify-center sm:justify-start',
+            'flex items-center gap-2 px-4 py-2.5 sm:px-4 sm:py-2 rounded-lg text-sm sm:text-base text-white transition-colors w-full sm:w-auto justify-center sm:justify-start touch-manipulation active:scale-95',
             colors.button
           )}
         >
@@ -108,12 +108,12 @@ export function HouseCard({
 
       {/* Matriarch Preview (when collapsed) */}
       {!isExpanded && (
-        <div className="px-4 pb-4">
-          <div className="flex items-center gap-4">
+        <div className="px-3 sm:px-4 pb-3 sm:pb-4">
+          <div className="flex items-center gap-3 sm:gap-4">
             <PersonNode person={matriarch} size="sm" />
-            <div className="text-sm text-earth-600 dark:text-earth-400">
-              <p>{children.length} children</p>
-              <p className="text-xs">Click to explore this lineage</p>
+            <div className="text-xs sm:text-sm text-earth-600 dark:text-earth-400">
+              <p className="font-medium">{children.length} {children.length === 1 ? 'child' : 'children'}</p>
+              <p className="text-[10px] sm:text-xs mt-0.5">Tap to explore lineage</p>
             </div>
           </div>
         </div>
@@ -121,12 +121,14 @@ export function HouseCard({
 
       {/* Expanded Tree */}
       {isExpanded && (
-        <div className="p-6 pt-2 overflow-x-auto">
-          <FamilyBranch 
-            person={matriarch} 
-            level={0} 
-            showSpouse={false}
-          />
+        <div className="p-3 sm:p-6 pt-2 overflow-x-auto overscroll-x-contain">
+          <div className="min-w-max">
+            <FamilyBranch 
+              person={matriarch} 
+              level={0} 
+              showSpouse={false}
+            />
+          </div>
         </div>
       )}
     </div>
