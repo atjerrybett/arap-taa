@@ -6,6 +6,18 @@ export type Gender = 'male' | 'female' | 'other';
 
 export type HouseName = 'Bot Evaline' | 'Bot Jonah' | 'Bot Samson';
 
+export type EventType = 'birthday' | 'wedding' | 'anniversary' | 'death' | 'graduation' | 'achievement' | 'other';
+
+export interface FamilyEvent {
+  id: string;
+  personId: string;
+  type: EventType;
+  title: string;
+  date: string; // YYYY-MM-DD format
+  description?: string;
+  isRecurring?: boolean; // For birthdays, anniversaries
+}
+
 export interface Person {
   id: string;
   firstName: string;
@@ -29,6 +41,7 @@ export interface Person {
   email?: string;
   phone?: string;
   isLiving?: boolean;
+  events?: FamilyEvent[];
 }
 
 export interface Marriage {

@@ -12,6 +12,10 @@ interface FamilyStore {
   openModal: (personId: string) => void;
   closeModal: () => void;
 
+  // Reference person for relationship calculations
+  referencePersonId: string;
+  setReferencePerson: (personId: string) => void;
+
   // Path highlight state
   highlightedPath: string[];
   highlightedTargetId: string | null;
@@ -46,6 +50,10 @@ export const useFamilyStore = create<FamilyStore>((set, get) => ({
   isModalOpen: false,
   openModal: (personId) => set({ selectedPersonId: personId, isModalOpen: true }),
   closeModal: () => set({ isModalOpen: false }),
+
+  // Reference person
+  referencePersonId: 'arap-taa',
+  setReferencePerson: (personId) => set({ referencePersonId: personId }),
 
   // Path highlight
   highlightedPath: [],

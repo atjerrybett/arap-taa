@@ -1,6 +1,6 @@
 'use client';
 
-import { X, User, Calendar, MapPin, Briefcase, Users, Heart, Baby, Crown, Mail, Phone, GraduationCap, Award, Link2, ImageIcon } from 'lucide-react';
+import { X, User, Calendar, MapPin, Briefcase, Users, Heart, Baby, Crown, Mail, Phone, GraduationCap, Award, Link2, ImageIcon, CalendarDays } from 'lucide-react';
 import { Person } from '@/types';
 import { 
   getPersonDisplayName, 
@@ -13,6 +13,7 @@ import {
 } from '@/data/familyData';
 import { useFamilyStore } from '@/store/familyStore';
 import { calculateRelationship } from '@/utils/relationshipCalculator';
+import { getEventsForDay, MONTH_NAMES } from '@/utils/calendarUtils';
 import { useState } from 'react';
 
 interface ProfileModalProps {
@@ -21,9 +22,24 @@ interface ProfileModalProps {
   referencePersonId?: string;
 }
 
-export function ProfileModal({ person, onClose, referencePersonId = 'arap-taa' }: ProfileModalProps) {
-  const { openModal } = useFamilyStore();
+export function ProfileModal({ person, onClose, referencePersonId }: ProfileModalProps) {
+  const { openModal, referencePersonId: storeReferenceId } = useFamilyStore();
   const [activePhotoIndex, setActivePhotoIndex] = useState(0);
+  
+  // Use store reference person if not explicitly provided
+  const effectiveReferenceId = referencePersonId || storeReferenceId;
+
+  // Helper function to format dates
+  const formatDate = (dateString: string): string => {
+    const date = new Date(dateString);
+    if (isNaN(date.getTime())) return dateString; // Return original if invalid
+    
+    const day = date.getDate();
+    const month = MONTH_NAMES[date.getMonth()];
+    const year = date.getFullYear();
+    
+    return `${day} ${month} ${year}`;
+  };
   
   const parents = getParentsOfPerson(person.id);
   const spouses = getSpousesOfPerson(person.id);
@@ -31,7 +47,8 @@ export function ProfileModal({ person, onClose, referencePersonId = 'arap-taa' }
   const siblings = getSiblingsOfPerson(person.id);
 
   // Calculate relationship to reference person
-  const relationship = calculateRelationship(referencePersonId, person.id);
+  const relationship = calculateRelationship(effectiveReferenceId, person.id);
+  const referencePerson = people[effectiveReferenceId];
 
   const houseColor = getHouseColor(person.house);
   
@@ -123,26 +140,31 @@ export function ProfileModal({ person, onClose, referencePersonId = 'arap-taa' }
           
           <div className="mt-4">
             <h2 className="text-2xl font-bold text-earth-900 dark:text-earth-100">
-              {getPersonDisplayName(person)}
+              {person.firstName} {person.lastName}
             </h2>
-            {person.house && (
-              <span className={`inline-block text-sm px-3 py-1 rounded-full mt-2 ${colors.light} ${colors.text}`}>
-                {person.house}
-              </span>
-            )}
+            <div className="flex flex-wrap gap-2 mt-2">
+              {person.house && (
+                <span className={`inline-block text-sm px-3 py-1 rounded-full ${colors.light} ${colors.text}`}>
+                  {person.house}
+                </span>
+              )}
+            </div>
           </div>
         </div>
 
         {/* Content */}
-        <div className="p-4 sm:p-6 overflow-y-auto max-h-[calc(95vh-220px)] sm:max-h-[calc(90vh-200px)]">
+        <div className="p-4 sm:p-6 overflow-y-auto" style={{ maxHeight: 'calc(90vh - 200px)' }}>
           {/* Relationship Badge */}
           {relationship && relationship.relationship !== 'Self' && (
             <div className="mb-4 p-3 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800">
               <div className="flex items-center gap-2">
                 <Link2 className="w-4 h-4 text-amber-600 dark:text-amber-400" />
                 <div>
-                  <p className="text-xs font-medium text-amber-900 dark:text-amber-300">Relationship to Patriarch</p>
+                  <p className="text-xs font-medium text-amber-900 dark:text-amber-300">
+                    Relationship to {getPersonDisplayName(referencePerson)}
+                  </p>
                   <p className="text-sm font-bold text-amber-700 dark:text-amber-400">{relationship.relationship}</p>
+                  <p className="text-xs text-amber-600 dark:text-amber-500 mt-0.5">{relationship.description}</p>
                 </div>
               </div>
             </div>
@@ -258,6 +280,15 @@ export function ProfileModal({ person, onClose, referencePersonId = 'arap-taa' }
                 </div>
               </div>
             )}
+            {person.nickname && (
+              <div className="flex items-center gap-3 p-3 rounded-xl bg-earth-50 dark:bg-earth-800">
+                <User className="w-5 h-5 text-earth-400" />
+                <div className="min-w-0 flex-1">
+                  <p className="text-xs text-earth-500 dark:text-earth-400">Nickname</p>
+                  <p className="text-sm font-medium text-earth-900 dark:text-earth-100 truncate">"{person.nickname}"</p>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Achievements */}
@@ -316,6 +347,48 @@ export function ProfileModal({ person, onClose, referencePersonId = 'arap-taa' }
                     ))}
                   </div>
                 )}
+              </div>
+            </div>
+          )}
+
+          {/* Important Dates & Events */}
+          {(person.birthDate || person.deathDate || (person.events && person.events.length > 0)) && (
+            <div className="mb-6">
+              <h3 className="flex items-center gap-2 font-semibold text-earth-900 dark:text-earth-100 mb-3">
+                <CalendarDays className="w-4 h-4" />
+                Important Dates
+              </h3>
+              <div className="space-y-2">
+                {person.birthDate && (
+                  <div className="flex items-start gap-3 p-3 rounded-lg bg-earth-50 dark:bg-earth-800">
+                    <Calendar className="w-4 h-4 text-amber-500 mt-0.5" />
+                    <div>
+                      <p className="text-sm font-medium text-earth-900 dark:text-earth-100">Birthday</p>
+                      <p className="text-xs text-earth-600 dark:text-earth-400">{formatDate(person.birthDate)}</p>
+                    </div>
+                  </div>
+                )}
+                {person.deathDate && (
+                  <div className="flex items-start gap-3 p-3 rounded-lg bg-earth-50 dark:bg-earth-800">
+                    <Calendar className="w-4 h-4 text-earth-400 mt-0.5" />
+                    <div>
+                      <p className="text-sm font-medium text-earth-900 dark:text-earth-100">Passed Away</p>
+                      <p className="text-xs text-earth-600 dark:text-earth-400">{formatDate(person.deathDate)}</p>
+                    </div>
+                  </div>
+                )}
+                {person.events && person.events.map((event) => (
+                  <div key={event.id} className="flex items-start gap-3 p-3 rounded-lg bg-earth-50 dark:bg-earth-800">
+                    <Calendar className="w-4 h-4 text-amber-500 mt-0.5" />
+                    <div className="flex-1">
+                      <p className="text-sm font-medium text-earth-900 dark:text-earth-100">{event.title}</p>
+                      <p className="text-xs text-earth-600 dark:text-earth-400">{formatDate(event.date)}</p>
+                      {event.description && (
+                        <p className="text-xs text-earth-500 dark:text-earth-400 mt-1">{event.description}</p>
+                      )}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           )}

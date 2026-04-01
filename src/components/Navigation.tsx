@@ -2,13 +2,15 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { Menu, X, TreePine, Users, Home, Info, Search } from 'lucide-react';
+import { Menu, X, TreePine, Users, Home, Info, Search, CalendarDays } from 'lucide-react';
 import { SearchModal } from './SearchModal';
+import { ViewAsSelector } from './ViewAsSelector';
 
 const navLinks = [
   { href: '/', label: 'Home', icon: Home },
   { href: '/tree', label: 'Full Tree', icon: TreePine },
   { href: '/people', label: 'People Directory', icon: Users },
+  { href: '/calendar', label: 'Calendar', icon: CalendarDays },
   { href: '/about', label: 'About', icon: Info },
 ];
 
@@ -50,11 +52,15 @@ export function Navigation() {
               ))}
             </div>
 
-            {/* Search & Mobile Menu */}
+            {/* Search, View As & Mobile Menu */}
             <div className="flex items-center gap-2">
+              <div className="hidden sm:block">
+                <ViewAsSelector />
+              </div>
+              
               <button
                 onClick={() => setIsSearchOpen(true)}
-                className="p-2 rounded-lg text-earth-700 dark:text-earth-300 hover:bg-earth-200 dark:hover:bg-earth-800 transition-colors"
+                className="p-2 rounded-lg text-earth-700 dark:text-earth-300 hover:bg-earth-200 dark:hover:bg-earth-800 transition-colors touch-manipulation"
                 aria-label="Search"
               >
                 <Search className="w-5 h-5" />
@@ -62,7 +68,7 @@ export function Navigation() {
 
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="md:hidden p-2 rounded-lg text-earth-700 dark:text-earth-300 hover:bg-earth-200 dark:hover:bg-earth-800 transition-colors"
+                className="md:hidden p-2 rounded-lg text-earth-700 dark:text-earth-300 hover:bg-earth-200 dark:hover:bg-earth-800 transition-colors touch-manipulation"
                 aria-label="Toggle menu"
               >
                 {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
