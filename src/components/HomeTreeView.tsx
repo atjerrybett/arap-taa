@@ -1,11 +1,12 @@
 'use client';
 
-import { people, houses, pathToMalcolm, getPersonDisplayName } from '@/data/familyData';
+import { people, houses, getPersonDisplayName } from '@/data/familyData';
 import { PersonNode } from './PersonNode';
 import { HouseCard, FamilyBranch } from './FamilyTree';
 import { useFamilyStore } from '@/store/familyStore';
 import { ProfileModal } from './ProfileModal';
-import { Sparkles, ArrowRight } from 'lucide-react';
+import { PathSearch } from './PathSearch';
+import { ArrowRight } from 'lucide-react';
 import clsx from 'clsx';
 
 export function HomeTreeView() {
@@ -13,8 +14,6 @@ export function HomeTreeView() {
     expandedHouses, 
     toggleHouse, 
     highlightedPath, 
-    highlightPathToMalcolm, 
-    clearHighlight,
     selectedPersonId,
     isModalOpen,
     closeModal
@@ -27,35 +26,24 @@ export function HomeTreeView() {
 
   return (
     <div className="py-8">
-      {/* Highlight Path Button */}
+      {/* Path Search */}
       <div className="flex justify-center mb-8">
-        <button
-          onClick={() => isPathHighlighted ? clearHighlight() : highlightPathToMalcolm()}
-          className={clsx(
-            'flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300',
-            isPathHighlighted
-              ? 'bg-amber-500 text-white shadow-lg shadow-amber-500/30'
-              : 'bg-white dark:bg-earth-800 text-earth-700 dark:text-earth-200 shadow-md hover:shadow-lg hover:scale-105'
-          )}
-        >
-          <Sparkles className={clsx('w-5 h-5', isPathHighlighted && 'animate-pulse')} />
-          {isPathHighlighted ? 'Clear Highlight' : 'Highlight Path to Malcolm'}
-        </button>
+        <PathSearch />
       </div>
 
       {/* Path Visualization */}
       {isPathHighlighted && (
         <div className="mb-8 p-4 bg-amber-50 dark:bg-amber-950/30 rounded-2xl border border-amber-200 dark:border-amber-800">
           <p className="text-sm text-amber-700 dark:text-amber-400 mb-3 font-medium">
-            Lineage Path: Arap Taa → Malcolm
+            Lineage Path: {getPersonDisplayName(people[highlightedPath[0]])} → {getPersonDisplayName(people[highlightedPath[highlightedPath.length - 1]])}
           </p>
           <div className="flex flex-wrap items-center gap-2">
-            {pathToMalcolm.map((personId, index) => (
+            {highlightedPath.map((personId, index) => (
               <div key={personId} className="flex items-center gap-2">
                 <span className="px-3 py-1 bg-amber-500 text-white rounded-full text-sm font-medium">
                   {getPersonDisplayName(people[personId])}
                 </span>
-                {index < pathToMalcolm.length - 1 && (
+                {index < highlightedPath.length - 1 && (
                   <ArrowRight className="w-4 h-4 text-amber-400" />
                 )}
               </div>

@@ -1,22 +1,20 @@
 'use client';
 
-import { people, houses } from '@/data/familyData';
+import { people, houses, getPersonDisplayName } from '@/data/familyData';
 import { PersonNode } from '@/components/PersonNode';
 import { HouseCard, FamilyBranch } from '@/components/FamilyTree';
 import { ProfileModal } from '@/components/ProfileModal';
+import { PathSearch } from '@/components/PathSearch';
 import { useFamilyStore } from '@/store/familyStore';
-import { Sparkles, ArrowRight, Maximize2, Minimize2 } from 'lucide-react';
+import { ArrowRight, Maximize2, Minimize2 } from 'lucide-react';
 import { useState } from 'react';
 import clsx from 'clsx';
-import { pathToMalcolm, getPersonDisplayName } from '@/data/familyData';
 
 export default function TreePage() {
   const {
     expandedHouses,
     toggleHouse,
     highlightedPath,
-    highlightPathToMalcolm,
-    clearHighlight,
     selectedPersonId,
     isModalOpen,
     closeModal,
@@ -42,22 +40,13 @@ export default function TreePage() {
                 Interactive view of the complete Arap Taa family
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto">
-              <button
-                onClick={() => isPathHighlighted ? clearHighlight() : highlightPathToMalcolm()}
-                className={clsx(
-                  'flex items-center justify-center gap-2 px-3 sm:px-4 py-2 rounded-lg font-medium transition-all text-xs sm:text-sm',
-                  isPathHighlighted
-                    ? 'bg-amber-500 text-white'
-                    : 'bg-earth-100 dark:bg-earth-800 text-earth-700 dark:text-earth-200 hover:bg-earth-200 dark:hover:bg-earth-700'
-                )}
-              >
-                <Sparkles className="w-4 h-4" />
-                {isPathHighlighted ? 'Clear Path' : 'Path to Malcolm'}
-              </button>
+            <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
+              <div className="flex-1 sm:flex-initial sm:w-72">
+                <PathSearch />
+              </div>
               <button
                 onClick={() => setIsFullscreen(!isFullscreen)}
-                className="p-2 rounded-lg bg-earth-100 dark:bg-earth-800 text-earth-700 dark:text-earth-200 hover:bg-earth-200 dark:hover:bg-earth-700 transition-colors"
+                className="p-2 rounded-lg bg-earth-100 dark:bg-earth-800 text-earth-700 dark:text-earth-200 hover:bg-earth-200 dark:hover:bg-earth-700 transition-colors flex-shrink-0"
               >
                 {isFullscreen ? <Minimize2 className="w-5 h-5" /> : <Maximize2 className="w-5 h-5" />}
               </button>
@@ -67,12 +56,12 @@ export default function TreePage() {
           {/* Path Breadcrumb */}
           {isPathHighlighted && (
             <div className="mt-4 flex flex-wrap items-center gap-2">
-              {pathToMalcolm.map((personId, index) => (
+              {highlightedPath.map((personId, index) => (
                 <div key={personId} className="flex items-center gap-2">
                   <span className="px-3 py-1 bg-amber-500 text-white rounded-full text-sm font-medium">
                     {getPersonDisplayName(people[personId])}
                   </span>
-                  {index < pathToMalcolm.length - 1 && (
+                  {index < highlightedPath.length - 1 && (
                     <ArrowRight className="w-4 h-4 text-amber-400" />
                   )}
                 </div>

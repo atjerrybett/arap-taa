@@ -54,7 +54,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { label: 'Family Members', value: '25+', icon: Users },
+              { label: 'Family Members', value: '50+', icon: Users },
               { label: 'Generations', value: '5', icon: TreePine },
               { label: 'Houses', value: '3', icon: BookOpen },
               { label: 'Stories', value: '∞', icon: Sparkles },

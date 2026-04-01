@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { HouseName } from '@/types';
-import { pathToMalcolm } from '@/data/familyData';
+import { pathToMalcolm, findPathBetween, people } from '@/data/familyData';
 
 interface FamilyStore {
   // Selection state
@@ -14,7 +14,9 @@ interface FamilyStore {
 
   // Path highlight state
   highlightedPath: string[];
+  highlightedTargetId: string | null;
   setHighlightedPath: (path: string[]) => void;
+  highlightPathTo: (targetId: string) => void;
   highlightPathToMalcolm: () => void;
   clearHighlight: () => void;
 
@@ -47,9 +49,75 @@ export const useFamilyStore = create<FamilyStore>((set, get) => ({
 
   // Path highlight
   highlightedPath: [],
+  highlightedTargetId: null,
   setHighlightedPath: (path) => set({ highlightedPath: path }),
-  highlightPathToMalcolm: () => set({ highlightedPath: pathToMalcolm }),
-  clearHighlight: () => set({ highlightedPath: [] }),
+  highlightPathTo: (targetId) => {
+    const path = findPathBetween('arap-taa', targetId);
+    
+    // Auto-expand houses that contain people in the path
+    const housesInPath = new Set<HouseName>();
+    path.forEach(personId => {
+      const person = people[personId];
+      if (person?.house) {
+        housesInPath.add(person.house as HouseName);
+      }
+    });
+    
+    // Auto-expand nodes in the path
+    const nodesToExpand = new Set(path);
+    
+    set((state) => {
+      const newExpandedHouses = [...state.expandedHouses];
+      housesInPath.forEach(house => {
+        if (!newExpandedHouses.includes(house)) {
+          newExpandedHouses.push(house);
+        }
+      });
+      
+      const newExpandedNodes = new Set(state.expandedNodes);
+      nodesToExpand.forEach(nodeId => newExpandedNodes.add(nodeId));
+      
+      return {
+        highlightedPath: path,
+        highlightedTargetId: targetId,
+        expandedHouses: newExpandedHouses,
+        expandedNodes: newExpandedNodes
+      };
+    });
+  },
+  highlightPathToMalcolm: () => {
+    // Auto-expand for Malcolm's path too
+    const path = pathToMalcolm;
+    const housesInPath = new Set<HouseName>();
+    path.forEach(personId => {
+      const person = people[personId];
+      if (person?.house) {
+        housesInPath.add(person.house as HouseName);
+      }
+    });
+    
+    const nodesToExpand = new Set(path);
+    
+    set((state) => {
+      const newExpandedHouses = [...state.expandedHouses];
+      housesInPath.forEach(house => {
+        if (!newExpandedHouses.includes(house)) {
+          newExpandedHouses.push(house);
+        }
+      });
+      
+      const newExpandedNodes = new Set(state.expandedNodes);
+      nodesToExpand.forEach(nodeId => newExpandedNodes.add(nodeId));
+      
+      return {
+        highlightedPath: pathToMalcolm,
+        highlightedTargetId: 'malcolm',
+        expandedHouses: newExpandedHouses,
+        expandedNodes: newExpandedNodes
+      };
+    });
+  },
+  clearHighlight: () => set({ highlightedPath: [], highlightedTargetId: null }),
 
   // House expansion
   expandedHouses: ['Bot Evaline'] as HouseName[],

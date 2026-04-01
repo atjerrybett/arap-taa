@@ -75,7 +75,323 @@ export const people: Record<string, Person> = {
     gender: 'male',
     clan: 'Kipchoge',
     house: 'Bot Evaline',
-    bio: 'Son of Arap Taa and Bot Evaline.',
+    bio: 'Son of Arap Taa and Bot Evaline. Father of seven children: Thomas, Henry, Emily, Betty, Patrick, Frederick, and Chebet.',
+  },
+
+  // DANIEL NYOLEI'S WIFE
+  'spouse-daniel': {
+    id: 'spouse-daniel',
+    firstName: '[Wife of Daniel]',
+    lastName: 'Nyolei',
+    gender: 'female',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Wife of Daniel Nyolei. Mother of Thomas, Henry, Emily, Betty, Patrick, Frederick, and Chebet.',
+  },
+
+  // CHILDREN OF DANIEL NYOLEI (Generation 3)
+  'thomas-nyolei': {
+    id: 'thomas-nyolei',
+    firstName: 'Thomas',
+    lastName: 'Nyolei',
+    gender: 'male',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'First born of Daniel and [Wife of Daniel] Nyolei. Father of three children.',
+  },
+  'henry-nyolei': {
+    id: 'henry-nyolei',
+    firstName: 'Henry',
+    lastName: 'Nyolei',
+    gender: 'male',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Son of Daniel and [Wife of Daniel] Nyolei. Father of four children.',
+  },
+  'emily-nyolei': {
+    id: 'emily-nyolei',
+    firstName: 'Emily',
+    lastName: 'Nyolei',
+    gender: 'female',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Daughter of Daniel and [Wife of Daniel] Nyolei. Mother of four children.',
+  },
+  'betty-nyolei': {
+    id: 'betty-nyolei',
+    firstName: 'Betty',
+    lastName: 'Nyolei',
+    gender: 'female',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Daughter of Daniel and [Wife of Daniel] Nyolei. Mother of three children.',
+  },
+  'patrick-tonui': {
+    id: 'patrick-tonui',
+    firstName: 'Patrick',
+    lastName: 'Tonui',
+    gender: 'male',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Son of Daniel and [Wife of Daniel] Nyolei. Father of three children.',
+  },
+  'frederick-tonui': {
+    id: 'frederick-tonui',
+    firstName: 'Frederick',
+    lastName: 'Tonui',
+    gender: 'male',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Son of Daniel and [Wife of Daniel] Nyolei. Father of two children.',
+  },
+  'chebet-nyolei': {
+    id: 'chebet-nyolei',
+    firstName: 'Chebet',
+    lastName: 'Nyolei',
+    gender: 'female',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Last born of Daniel and [Wife of Daniel] Nyolei. Mother of two children.',
+  },
+
+  // SPOUSES OF DANIEL'S CHILDREN (Generation 3 spouses)
+  'spouse-thomas': {
+    id: 'spouse-thomas',
+    firstName: '[Wife of Thomas]',
+    gender: 'female',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Wife of Thomas Nyolei.',
+  },
+  'spouse-henry': {
+    id: 'spouse-henry',
+    firstName: '[Wife of Henry]',
+    gender: 'female',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Wife of Henry Nyolei.',
+  },
+  'spouse-emily': {
+    id: 'spouse-emily',
+    firstName: '[Husband of Emily]',
+    gender: 'male',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Husband of Emily Nyolei.',
+  },
+  'spouse-patrick': {
+    id: 'spouse-patrick',
+    firstName: '[Wife of Patrick]',
+    gender: 'female',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Wife of Patrick Tonui.',
+  },
+  'spouse-frederick': {
+    id: 'spouse-frederick',
+    firstName: '[Wife of Frederick]',
+    gender: 'female',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Wife of Frederick Tonui.',
+  },
+
+  // GRANDCHILDREN OF DANIEL NYOLEI (Generation 4)
+  // Thomas's 3 children
+  'thomas-child-1': {
+    id: 'thomas-child-1',
+    firstName: '[Child 1]',
+    lastName: 'Nyolei',
+    gender: 'male',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Child of Thomas Nyolei.',
+  },
+  'thomas-child-2': {
+    id: 'thomas-child-2',
+    firstName: '[Child 2]',
+    lastName: 'Nyolei',
+    gender: 'male',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Child of Thomas Nyolei.',
+  },
+  'thomas-child-3': {
+    id: 'thomas-child-3',
+    firstName: '[Child 3]',
+    lastName: 'Nyolei',
+    gender: 'female',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Child of Thomas Nyolei.',
+  },
+
+  // Henry's 4 children
+  'henry-child-1': {
+    id: 'henry-child-1',
+    firstName: '[Child 1]',
+    lastName: 'Nyolei',
+    gender: 'male',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Child of Henry Nyolei.',
+  },
+  'henry-child-2': {
+    id: 'henry-child-2',
+    firstName: '[Child 2]',
+    lastName: 'Nyolei',
+    gender: 'female',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Child of Henry Nyolei.',
+  },
+  'henry-child-3': {
+    id: 'henry-child-3',
+    firstName: '[Child 3]',
+    lastName: 'Nyolei',
+    gender: 'male',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Child of Henry Nyolei.',
+  },
+  'henry-child-4': {
+    id: 'henry-child-4',
+    firstName: '[Child 4]',
+    lastName: 'Nyolei',
+    gender: 'female',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Child of Henry Nyolei.',
+  },
+
+  // Emily's 4 children
+  'emily-child-1': {
+    id: 'emily-child-1',
+    firstName: '[Child 1]',
+    gender: 'male',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Child of Emily Nyolei.',
+  },
+  'emily-child-2': {
+    id: 'emily-child-2',
+    firstName: '[Child 2]',
+    gender: 'female',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Child of Emily Nyolei.',
+  },
+  'emily-child-3': {
+    id: 'emily-child-3',
+    firstName: '[Child 3]',
+    gender: 'male',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Child of Emily Nyolei.',
+  },
+  'emily-child-4': {
+    id: 'emily-child-4',
+    firstName: '[Child 4]',
+    gender: 'female',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Child of Emily Nyolei.',
+  },
+
+  // Betty's 3 children
+  'betty-n-child-1': {
+    id: 'betty-n-child-1',
+    firstName: '[Child 1]',
+    lastName: 'Nyolei',
+    gender: 'male',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Child of Betty Nyolei.',
+  },
+  'betty-n-child-2': {
+    id: 'betty-n-child-2',
+    firstName: '[Child 2]',
+    lastName: 'Nyolei',
+    gender: 'female',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Child of Betty Nyolei.',
+  },
+  'betty-n-child-3': {
+    id: 'betty-n-child-3',
+    firstName: '[Child 3]',
+    lastName: 'Nyolei',
+    gender: 'male',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Child of Betty Nyolei.',
+  },
+
+  // Patrick's 3 children
+  'patrick-child-1': {
+    id: 'patrick-child-1',
+    firstName: '[Child 1]',
+    lastName: 'Tonui',
+    gender: 'male',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Child of Patrick Tonui.',
+  },
+  'patrick-child-2': {
+    id: 'patrick-child-2',
+    firstName: '[Child 2]',
+    lastName: 'Tonui',
+    gender: 'female',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Child of Patrick Tonui.',
+  },
+  'patrick-child-3': {
+    id: 'patrick-child-3',
+    firstName: '[Child 3]',
+    lastName: 'Tonui',
+    gender: 'male',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Child of Patrick Tonui.',
+  },
+
+  // Frederick's 2 children
+  'frederick-child-1': {
+    id: 'frederick-child-1',
+    firstName: '[Child 1]',
+    lastName: 'Tonui',
+    gender: 'male',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Child of Frederick Tonui.',
+  },
+  'frederick-child-2': {
+    id: 'frederick-child-2',
+    firstName: '[Child 2]',
+    lastName: 'Tonui',
+    gender: 'female',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Child of Frederick Tonui.',
+  },
+
+  // Chebet's 2 children
+  'chebet-child-1': {
+    id: 'chebet-child-1',
+    firstName: '[Child 1]',
+    gender: 'male',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Child of Chebet Nyolei.',
+  },
+  'chebet-child-2': {
+    id: 'chebet-child-2',
+    firstName: '[Child 2]',
+    gender: 'female',
+    clan: 'Kipchoge',
+    house: 'Bot Evaline',
+    bio: 'Child of Chebet Nyolei.',
   },
 
   // HOUSE OF BOT EVALINE - GENERATION 3 (Children of Elizabeth)
@@ -283,6 +599,60 @@ export const marriages: Marriage[] = [
     isActive: true,
     childrenIds: ['malkia', 'malcolm'],
   },
+
+  // Daniel Nyolei & Wife's marriage
+  {
+    id: 'marriage-daniel-nyolei',
+    spouse1Id: 'daniel-nyolei',
+    spouse2Id: 'spouse-daniel',
+    isActive: true,
+    childrenIds: ['thomas-nyolei', 'henry-nyolei', 'emily-nyolei', 'betty-nyolei', 'patrick-tonui', 'frederick-tonui', 'chebet-nyolei'],
+  },
+
+  // Thomas Nyolei & Wife
+  {
+    id: 'marriage-thomas-nyolei',
+    spouse1Id: 'thomas-nyolei',
+    spouse2Id: 'spouse-thomas',
+    isActive: true,
+    childrenIds: ['thomas-child-1', 'thomas-child-2', 'thomas-child-3'],
+  },
+
+  // Henry Nyolei & Wife
+  {
+    id: 'marriage-henry-nyolei',
+    spouse1Id: 'henry-nyolei',
+    spouse2Id: 'spouse-henry',
+    isActive: true,
+    childrenIds: ['henry-child-1', 'henry-child-2', 'henry-child-3', 'henry-child-4'],
+  },
+
+  // Emily Nyolei & Husband
+  {
+    id: 'marriage-emily-nyolei',
+    spouse1Id: 'emily-nyolei',
+    spouse2Id: 'spouse-emily',
+    isActive: true,
+    childrenIds: ['emily-child-1', 'emily-child-2', 'emily-child-3', 'emily-child-4'],
+  },
+
+  // Patrick Tonui & Wife
+  {
+    id: 'marriage-patrick-tonui',
+    spouse1Id: 'patrick-tonui',
+    spouse2Id: 'spouse-patrick',
+    isActive: true,
+    childrenIds: ['patrick-child-1', 'patrick-child-2', 'patrick-child-3'],
+  },
+
+  // Frederick Tonui & Wife
+  {
+    id: 'marriage-frederick-tonui',
+    spouse1Id: 'frederick-tonui',
+    spouse2Id: 'spouse-frederick',
+    isActive: true,
+    childrenIds: ['frederick-child-1', 'frederick-child-2'],
+  },
 ];
 
 // ==========================================
@@ -325,6 +695,73 @@ export const parentChildRelations: ParentChild[] = [
   { parentId: 'valerie', childId: 'malcolm', relationship: 'biological' },
   { parentId: 'karanja', childId: 'malkia', relationship: 'biological' },
   { parentId: 'karanja', childId: 'malcolm', relationship: 'biological' },
+
+  // Daniel Nyolei & Wife's children
+  { parentId: 'daniel-nyolei', childId: 'thomas-nyolei', relationship: 'biological' },
+  { parentId: 'daniel-nyolei', childId: 'henry-nyolei', relationship: 'biological' },
+  { parentId: 'daniel-nyolei', childId: 'emily-nyolei', relationship: 'biological' },
+  { parentId: 'daniel-nyolei', childId: 'betty-nyolei', relationship: 'biological' },
+  { parentId: 'daniel-nyolei', childId: 'patrick-tonui', relationship: 'biological' },
+  { parentId: 'daniel-nyolei', childId: 'frederick-tonui', relationship: 'biological' },
+  { parentId: 'daniel-nyolei', childId: 'chebet-nyolei', relationship: 'biological' },
+  { parentId: 'spouse-daniel', childId: 'thomas-nyolei', relationship: 'biological' },
+  { parentId: 'spouse-daniel', childId: 'henry-nyolei', relationship: 'biological' },
+  { parentId: 'spouse-daniel', childId: 'emily-nyolei', relationship: 'biological' },
+  { parentId: 'spouse-daniel', childId: 'betty-nyolei', relationship: 'biological' },
+  { parentId: 'spouse-daniel', childId: 'patrick-tonui', relationship: 'biological' },
+  { parentId: 'spouse-daniel', childId: 'frederick-tonui', relationship: 'biological' },
+  { parentId: 'spouse-daniel', childId: 'chebet-nyolei', relationship: 'biological' },
+
+  // Thomas Nyolei's children
+  { parentId: 'thomas-nyolei', childId: 'thomas-child-1', relationship: 'biological' },
+  { parentId: 'thomas-nyolei', childId: 'thomas-child-2', relationship: 'biological' },
+  { parentId: 'thomas-nyolei', childId: 'thomas-child-3', relationship: 'biological' },
+  { parentId: 'spouse-thomas', childId: 'thomas-child-1', relationship: 'biological' },
+  { parentId: 'spouse-thomas', childId: 'thomas-child-2', relationship: 'biological' },
+  { parentId: 'spouse-thomas', childId: 'thomas-child-3', relationship: 'biological' },
+
+  // Henry Nyolei's children
+  { parentId: 'henry-nyolei', childId: 'henry-child-1', relationship: 'biological' },
+  { parentId: 'henry-nyolei', childId: 'henry-child-2', relationship: 'biological' },
+  { parentId: 'henry-nyolei', childId: 'henry-child-3', relationship: 'biological' },
+  { parentId: 'henry-nyolei', childId: 'henry-child-4', relationship: 'biological' },
+  { parentId: 'spouse-henry', childId: 'henry-child-1', relationship: 'biological' },
+  { parentId: 'spouse-henry', childId: 'henry-child-2', relationship: 'biological' },
+  { parentId: 'spouse-henry', childId: 'henry-child-3', relationship: 'biological' },
+  { parentId: 'spouse-henry', childId: 'henry-child-4', relationship: 'biological' },
+
+  // Emily Nyolei's children
+  { parentId: 'emily-nyolei', childId: 'emily-child-1', relationship: 'biological' },
+  { parentId: 'emily-nyolei', childId: 'emily-child-2', relationship: 'biological' },
+  { parentId: 'emily-nyolei', childId: 'emily-child-3', relationship: 'biological' },
+  { parentId: 'emily-nyolei', childId: 'emily-child-4', relationship: 'biological' },
+  { parentId: 'spouse-emily', childId: 'emily-child-1', relationship: 'biological' },
+  { parentId: 'spouse-emily', childId: 'emily-child-2', relationship: 'biological' },
+  { parentId: 'spouse-emily', childId: 'emily-child-3', relationship: 'biological' },
+  { parentId: 'spouse-emily', childId: 'emily-child-4', relationship: 'biological' },
+
+  // Betty Nyolei's children (no spouse)
+  { parentId: 'betty-nyolei', childId: 'betty-n-child-1', relationship: 'biological' },
+  { parentId: 'betty-nyolei', childId: 'betty-n-child-2', relationship: 'biological' },
+  { parentId: 'betty-nyolei', childId: 'betty-n-child-3', relationship: 'biological' },
+
+  // Patrick Tonui's children
+  { parentId: 'patrick-tonui', childId: 'patrick-child-1', relationship: 'biological' },
+  { parentId: 'patrick-tonui', childId: 'patrick-child-2', relationship: 'biological' },
+  { parentId: 'patrick-tonui', childId: 'patrick-child-3', relationship: 'biological' },
+  { parentId: 'spouse-patrick', childId: 'patrick-child-1', relationship: 'biological' },
+  { parentId: 'spouse-patrick', childId: 'patrick-child-2', relationship: 'biological' },
+  { parentId: 'spouse-patrick', childId: 'patrick-child-3', relationship: 'biological' },
+
+  // Frederick Tonui's children
+  { parentId: 'frederick-tonui', childId: 'frederick-child-1', relationship: 'biological' },
+  { parentId: 'frederick-tonui', childId: 'frederick-child-2', relationship: 'biological' },
+  { parentId: 'spouse-frederick', childId: 'frederick-child-1', relationship: 'biological' },
+  { parentId: 'spouse-frederick', childId: 'frederick-child-2', relationship: 'biological' },
+
+  // Chebet Nyolei's children (no spouse)
+  { parentId: 'chebet-nyolei', childId: 'chebet-child-1', relationship: 'biological' },
+  { parentId: 'chebet-nyolei', childId: 'chebet-child-2', relationship: 'biological' },
 ];
 
 // ==========================================
@@ -380,6 +817,65 @@ export const pathToMalcolm = [
   'valerie',
   'malcolm',
 ];
+
+// ==========================================
+// GENERIC PATH-FINDING (BFS)
+// ==========================================
+
+/**
+ * Find the shortest path between any two people in the family tree.
+ * Traverses parent-child and spouse relationships bidirectionally.
+ */
+export function findPathBetween(fromId: string, toId: string): string[] {
+  if (fromId === toId) return [fromId];
+  if (!people[fromId] || !people[toId]) return [];
+
+  // Build adjacency list from parent-child relationships
+  const adjacency: Record<string, Set<string>> = {};
+
+  const addEdge = (a: string, b: string) => {
+    if (!adjacency[a]) adjacency[a] = new Set();
+    if (!adjacency[b]) adjacency[b] = new Set();
+    adjacency[a].add(b);
+    adjacency[b].add(a);
+  };
+
+  // Parent-child edges (bidirectional)
+  parentChildRelations.forEach(rel => {
+    if (people[rel.parentId] && people[rel.childId]) {
+      addEdge(rel.parentId, rel.childId);
+    }
+  });
+
+  // Spouse edges (bidirectional)
+  marriages.forEach(m => {
+    if (m.spouse1Id && m.spouse2Id && people[m.spouse1Id] && people[m.spouse2Id]) {
+      addEdge(m.spouse1Id, m.spouse2Id);
+    }
+  });
+
+  // BFS
+  const queue: string[][] = [[fromId]];
+  const visited = new Set<string>([fromId]);
+
+  while (queue.length > 0) {
+    const path = queue.shift()!;
+    const current = path[path.length - 1];
+
+    const neighbors = adjacency[current] || new Set();
+    for (const neighbor of neighbors) {
+      if (neighbor === toId) {
+        return [...path, neighbor];
+      }
+      if (!visited.has(neighbor)) {
+        visited.add(neighbor);
+        queue.push([...path, neighbor]);
+      }
+    }
+  }
+
+  return []; // No path found
+}
 
 // ==========================================
 // HELPER FUNCTIONS
