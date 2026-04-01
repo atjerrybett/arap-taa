@@ -57,34 +57,34 @@ export default function PeoplePage() {
   };
 
   return (
-    <div className="min-h-screen bg-forest-50 dark:bg-forest-950">
+    <div className="min-h-screen bg-earth-50 dark:bg-earth-950">
       {/* Header */}
-      <div className="bg-white dark:bg-forest-900 border-b border-forest-200 dark:border-forest-800">
+      <div className="bg-white dark:bg-earth-900 border-b border-earth-200 dark:border-earth-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
-          <h1 className="text-2xl sm:text-3xl font-bold text-forest-900 dark:text-forest-100">
+          <h1 className="text-2xl sm:text-3xl font-bold text-earth-900 dark:text-earth-100">
             People Directory
           </h1>
-          <p className="text-sm sm:text-base text-forest-600 dark:text-forest-400 mt-1 sm:mt-2">
+          <p className="text-sm sm:text-base text-earth-600 dark:text-earth-400 mt-1 sm:mt-2">
             Browse all {allPeople.length} members of the Arap Taa family
           </p>
 
           {/* Search & Filters */}
           <div className="mt-4 sm:mt-6 flex flex-col gap-3 sm:gap-4">
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-forest-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-earth-400" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search by name..."
-                className="w-full pl-10 pr-4 py-3 bg-forest-50 dark:bg-forest-800 border border-forest-200 dark:border-forest-700 rounded-xl text-forest-900 dark:text-forest-100 placeholder:text-forest-400 outline-none focus:ring-2 focus:ring-copper-500 transition-shadow"
+                className="w-full pl-10 pr-4 py-3 bg-earth-50 dark:bg-earth-800 border border-earth-200 dark:border-earth-700 rounded-xl text-earth-900 dark:text-earth-100 placeholder:text-earth-400 outline-none focus:ring-2 focus:ring-amber-500 transition-shadow"
               />
             </div>
 
             <select
               value={filterHouse}
               onChange={(e) => setFilterHouse(e.target.value)}
-              className="px-4 py-3 bg-forest-50 dark:bg-forest-800 border border-forest-200 dark:border-forest-700 rounded-xl text-forest-900 dark:text-forest-100 outline-none focus:ring-2 focus:ring-copper-500"
+              className="px-4 py-3 bg-earth-50 dark:bg-earth-800 border border-earth-200 dark:border-earth-700 rounded-xl text-earth-900 dark:text-earth-100 outline-none focus:ring-2 focus:ring-amber-500"
             >
               <option value="all">All Houses</option>
               <option value="Bot Evaline">Bot Evaline</option>
@@ -95,7 +95,7 @@ export default function PeoplePage() {
             <select
               value={filterGender}
               onChange={(e) => setFilterGender(e.target.value)}
-              className="px-4 py-3 bg-forest-50 dark:bg-forest-800 border border-forest-200 dark:border-forest-700 rounded-xl text-forest-900 dark:text-forest-100 outline-none focus:ring-2 focus:ring-copper-500"
+              className="px-4 py-3 bg-earth-50 dark:bg-earth-800 border border-earth-200 dark:border-earth-700 rounded-xl text-earth-900 dark:text-earth-100 outline-none focus:ring-2 focus:ring-amber-500"
             >
               <option value="all">All Genders</option>
               <option value="male">Male</option>
@@ -107,7 +107,7 @@ export default function PeoplePage() {
 
       {/* People Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <p className="text-sm text-forest-500 dark:text-forest-400 mb-6">
+        <p className="text-sm text-earth-500 dark:text-earth-400 mb-6">
           Showing {filteredPeople.length} of {allPeople.length} family members
         </p>
 
@@ -122,7 +122,7 @@ export default function PeoplePage() {
               <button
                 key={person.id}
                 onClick={() => openModal(person.id)}
-                className="flex items-start gap-4 p-4 bg-white dark:bg-forest-900 rounded-2xl shadow-sm hover:shadow-md transition-all text-left group hover:-translate-y-0.5"
+                className="flex items-start gap-4 p-4 bg-white dark:bg-earth-900 rounded-2xl shadow-sm hover:shadow-md transition-all text-left group hover:-translate-y-0.5"
               >
                 <div className={clsx(
                   'w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0',
@@ -134,7 +134,7 @@ export default function PeoplePage() {
                 </div>
 
                 <div className="min-w-0 flex-1">
-                  <h3 className="font-semibold text-forest-900 dark:text-forest-100 truncate group-hover:text-copper-600 dark:group-hover:text-copper-400 transition-colors">
+                  <h3 className="font-semibold text-earth-900 dark:text-earth-100 truncate group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
                     {getPersonDisplayName(person)}
                   </h3>
                   
@@ -145,7 +145,7 @@ export default function PeoplePage() {
                     </div>
                   )}
 
-                  <div className="flex gap-3 mt-2 text-xs text-forest-500 dark:text-forest-400">
+                  <div className="flex gap-3 mt-2 text-xs text-earth-500 dark:text-earth-400">
                     {children.length > 0 && (
                       <span>{children.length} {children.length === 1 ? 'child' : 'children'}</span>
                     )}
@@ -155,7 +155,7 @@ export default function PeoplePage() {
                   </div>
 
                   {(person.isPatriarch || person.isMatriarch) && (
-                    <span className="inline-block mt-2 text-xs px-2 py-0.5 rounded-full bg-copper-100 dark:bg-copper-900/30 text-copper-700 dark:text-copper-400">
+                    <span className="inline-block mt-2 text-xs px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400">
                       {person.isPatriarch ? 'Patriarch' : 'Matriarch'}
                     </span>
                   )}
@@ -167,9 +167,9 @@ export default function PeoplePage() {
 
         {filteredPeople.length === 0 && (
           <div className="text-center py-16">
-            <User className="w-16 h-16 mx-auto text-forest-300 dark:text-forest-600 mb-4" />
-            <h3 className="text-lg font-semibold text-forest-700 dark:text-forest-300">No results found</h3>
-            <p className="text-forest-500 dark:text-forest-400 mt-1">Try adjusting your search or filters</p>
+            <User className="w-16 h-16 mx-auto text-earth-300 dark:text-earth-600 mb-4" />
+            <h3 className="text-lg font-semibold text-earth-700 dark:text-earth-300">No results found</h3>
+            <p className="text-earth-500 dark:text-earth-400 mt-1">Try adjusting your search or filters</p>
           </div>
         )}
       </div>

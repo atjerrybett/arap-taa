@@ -72,41 +72,41 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     <div className="fixed inset-0 z-[100] flex items-start sm:items-center justify-center pt-[5vh] sm:pt-[10vh] px-3 sm:px-4">
       {/* Backdrop */}
       <div 
-        className="absolute inset-0 bg-forest-950/50 modal-backdrop"
+        className="absolute inset-0 bg-earth-950/50 modal-backdrop"
         onClick={onClose}
       />
       
       {/* Modal */}
-      <div className="relative w-full max-w-sm sm:max-w-lg bg-white dark:bg-forest-900 rounded-2xl shadow-2xl overflow-hidden animate-fade-in">
+      <div className="relative w-full max-w-sm sm:max-w-lg bg-white dark:bg-earth-900 rounded-2xl shadow-2xl overflow-hidden animate-fade-in">
         {/* Search Input */}
-        <div className="flex items-center gap-3 p-4 border-b border-forest-200 dark:border-forest-700">
-          <Search className="w-5 h-5 text-forest-400" />
+        <div className="flex items-center gap-3 p-4 border-b border-earth-200 dark:border-earth-700">
+          <Search className="w-5 h-5 text-earth-400" />
           <input
             ref={inputRef}
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search family members..."
-            className="flex-1 bg-transparent outline-none text-forest-900 dark:text-forest-100 placeholder:text-forest-400"
+            className="flex-1 bg-transparent outline-none text-earth-900 dark:text-earth-100 placeholder:text-earth-400"
           />
           <button
             onClick={onClose}
-            className="p-1 rounded-lg hover:bg-forest-100 dark:hover:bg-forest-800 transition-colors"
+            className="p-1 rounded-lg hover:bg-earth-100 dark:hover:bg-earth-800 transition-colors"
           >
-            <X className="w-5 h-5 text-forest-400" />
+            <X className="w-5 h-5 text-earth-400" />
           </button>
         </div>
 
         {/* Results */}
         <div className="max-h-[60vh] overflow-y-auto">
           {query.trim() === '' ? (
-            <div className="p-8 text-center text-forest-500 dark:text-forest-400">
+            <div className="p-8 text-center text-earth-500 dark:text-earth-400">
               <Search className="w-12 h-12 mx-auto mb-3 opacity-50" />
               <p>Start typing to search family members</p>
-              <p className="text-sm mt-1 text-forest-400">Press ESC to close</p>
+              <p className="text-sm mt-1 text-earth-400">Press ESC to close</p>
             </div>
           ) : results.length === 0 ? (
-            <div className="p-8 text-center text-forest-500 dark:text-forest-400">
+            <div className="p-8 text-center text-earth-500 dark:text-earth-400">
               <User className="w-12 h-12 mx-auto mb-3 opacity-50" />
               <p>No family members found for &ldquo;{query}&rdquo;</p>
             </div>
@@ -118,13 +118,13 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                   <li key={person.id}>
                     <button
                       onClick={() => handleSelect(person)}
-                      className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-forest-100 dark:hover:bg-forest-800 transition-colors text-left"
+                      className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-earth-100 dark:hover:bg-earth-800 transition-colors text-left"
                     >
-                      <div className="w-10 h-10 rounded-full bg-forest-200 dark:bg-forest-700 flex items-center justify-center">
-                        <User className="w-5 h-5 text-forest-500 dark:text-forest-400" />
+                      <div className="w-10 h-10 rounded-full bg-earth-200 dark:bg-earth-700 flex items-center justify-center">
+                        <User className="w-5 h-5 text-earth-500 dark:text-earth-400" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="font-medium text-forest-900 dark:text-forest-100 truncate">
+                        <p className="font-medium text-earth-900 dark:text-earth-100 truncate">
                           {getPersonDisplayName(person)}
                         </p>
                         {person.house && (

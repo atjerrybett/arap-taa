@@ -20,7 +20,7 @@ export function Stats() {
       label: 'Houses',
       value: '3',
       icon: Shield,
-      color: 'text-copper-500',
+      color: 'text-amber-500',
     },
     {
       label: 'Connections',
@@ -35,13 +35,13 @@ export function Stats() {
       {stats.map((stat) => (
         <div
           key={stat.label}
-          className="p-6 bg-white dark:bg-forest-800 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
+          className="p-6 bg-white dark:bg-earth-800 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
         >
           <stat.icon className={`w-8 h-8 mb-3 ${stat.color}`} />
-          <p className="text-2xl font-bold text-forest-900 dark:text-forest-100">
+          <p className="text-2xl font-bold text-earth-900 dark:text-earth-100">
             {stat.value}
           </p>
-          <p className="text-xs text-forest-500 dark:text-forest-400 mt-1">
+          <p className="text-xs text-earth-500 dark:text-earth-400 mt-1">
             {stat.label}
           </p>
         </div>
